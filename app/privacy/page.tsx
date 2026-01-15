@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-black mb-4">1. Introduction</h2>
             <p>
-              This Privacy Policy describes how we collect, use, and protect your personal information when you use our IQ Test Application ("Service", "we", "us", or "our"). We are committed to protecting your privacy and ensuring the security of your personal data.
+              This Privacy Policy describes how we collect, use, and protect your personal information when you use our IQ Test Application (&quot;Service&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your privacy and ensuring the security of your personal data.
             </p>
             <p>
               By using our Service, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with our policies and practices, please do not use our Service.
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
               <li>Account information necessary to process the transaction</li>
             </ul>
             <p>
-              Paddle's use of your personal information is governed by their Privacy Policy. We encourage you to review Paddle's Privacy Policy at <a href="https://paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://paddle.com/legal/privacy</a>.
+              Paddle&apos;s use of your personal information is governed by their Privacy Policy. We encourage you to review Paddle&apos;s Privacy Policy at <a href="https://paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://paddle.com/legal/privacy</a>.
             </p>
             <p>
               We receive limited information from Paddle about your transactions, such as payment status and subscription details, which we use to manage your account and provide customer support.
@@ -207,7 +207,7 @@ export default function PrivacyPage() {
 
           {/* Section 9: Children's Privacy */}
           <section>
-            <h2 className="text-2xl font-bold text-black mb-4">9. Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">9. Children&apos;s Privacy</h2>
             <p>
               Our Service is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information.
             </p>
@@ -239,7 +239,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-black mb-4">12. Changes to This Privacy Policy</h2>
             <p>
-              We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+              We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
             </p>
             <p>
               We encourage you to review this Privacy Policy periodically for any changes. Your continued use of the Service after any changes to this Privacy Policy constitutes your acceptance of the updated policy.
@@ -264,7 +264,7 @@ export default function PrivacyPage() {
               </p>
             </div>
             <p className="mt-4">
-              For data protection inquiries or to exercise your rights, please include "Privacy Request" in the subject line of your email.
+              For data protection inquiries or to exercise your rights, please include &quot;Privacy Request&quot; in the subject line of your email.
             </p>
           </section>
         </div>

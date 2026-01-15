@@ -18,7 +18,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-black mb-4">1. Introduction</h2>
             <p>
-              Welcome to our IQ Test Application ("Service", "we", "us", or "our"). These Terms of Service ("Terms") govern your access to and use of our Service. By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these Terms, then you may not access the Service.
+              Welcome to our IQ Test Application (&quot;Service&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). These Terms of Service (&quot;Terms&quot;) govern your access to and use of our Service. By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these Terms, then you may not access the Service.
             </p>
             <p>
               Our Service provides an online IQ test for entertainment and personal awareness purposes. This test is not intended for scientific or clinical diagnostic purposes.
@@ -68,7 +68,7 @@ export default function TermsPage() {
             </p>
             <h3 className="text-xl font-semibold text-black mt-4 mb-2">4.1 Payment Processing</h3>
             <p>
-              All payments are processed securely through Paddle, our third-party payment processor. By making a purchase, you agree to Paddle's terms and conditions. We do not store your complete payment card information on our servers.
+              All payments are processed securely through Paddle, our third-party payment processor. By making a purchase, you agree to Paddle&apos;s terms and conditions. We do not store your complete payment card information on our servers.
             </p>
             <h3 className="text-xl font-semibold text-black mt-4 mb-2">4.2 Subscription Plans</h3>
             <p>
@@ -177,7 +177,7 @@ export default function TermsPage() {
               <li>Errors or omissions in any content or for any loss or damage incurred as a result of the use of any content posted, emailed, transmitted, or otherwise made available through the Service</li>
             </ul>
             <p>
-              THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+              THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
             </p>
             <p>
               Some jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for incidental or consequential damages. Accordingly, some of the above limitations may not apply to you.
@@ -208,7 +208,7 @@ export default function TermsPage() {
               What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.
             </p>
             <p>
-              We encourage you to review these Terms periodically. The "Last updated" date at the top of this page indicates when these Terms were last revised.
+              We encourage you to review these Terms periodically. The &quot;Last updated&quot; date at the top of this page indicates when these Terms were last revised.
             </p>
           </section>
 

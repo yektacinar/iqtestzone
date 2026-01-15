@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { questions, Question } from '@/lib/questions';
-import { PatternCellComponent } from '@/lib/visual-patterns';
+import { PatternCellComponent, PatternCell } from '@/lib/visual-patterns';
 
 const TOTAL_TIME = 7 * 60; // 7 minutes in seconds
 
@@ -99,14 +99,14 @@ export default function TestPage() {
 
         {/* Question Display Area - Centered and Focused */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
-          {question.type === 'matrix' && question.matrix && (
+          {question.type === 'visual' && question.visualData?.matrix && (
             <div className="mb-8">
               <div className="text-center mb-4">
                 <p className="text-sm text-gray-500 mb-2">Aşağıdaki desende eksik parçayı seçin</p>
               </div>
               <div className="flex justify-center">
                 <div className="grid grid-cols-3 gap-3">
-                  {question.matrix.flat().map((cell, idx) => (
+                  {question.visualData.matrix.flat().map((cell, idx) => (
                     <div
                       key={idx}
                       className="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-gray-200"
@@ -123,13 +123,13 @@ export default function TestPage() {
             </div>
           )}
 
-          {question.type === 'sequence' && question.sequence && (
+          {question.type === 'visual' && question.visualData?.sequence && (
             <div className="mb-8">
               <div className="text-center mb-4">
                 <p className="text-sm text-gray-500 mb-2">Desenin devamını seçin</p>
               </div>
               <div className="flex justify-center gap-4">
-                {question.sequence.map((cell, idx) => (
+                {question.visualData.sequence.map((cell, idx) => (
                   <div
                     key={idx}
                     className="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-gray-200"
@@ -148,7 +148,9 @@ export default function TestPage() {
         {/* Answer Grid - 2x3 or 3x3 */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
           <div className={`grid gap-4 ${numOptions <= 6 ? 'grid-cols-3' : 'grid-cols-3'}`}>
-            {question.options.map((option, index) => (
+            {question.options.map((option, index) => {
+              const isPatternCell = question.type === 'visual' && typeof option !== 'string';
+              return (
               <button
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
@@ -162,7 +164,11 @@ export default function TestPage() {
                   }
                 `}
               >
-                <PatternCellComponent cell={option} size={100} />
+                {isPatternCell ? (
+                  <PatternCellComponent cell={option as PatternCell} size={100} />
+                ) : (
+                  <span className="text-lg font-semibold">{option as string}</span>
+                )}
                 {selectedAnswer === index && (
                   <div className="absolute top-2 right-2 w-5 h-5 bg-gray-900 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,7 +177,8 @@ export default function TestPage() {
                   </div>
                 )}
               </button>
-            ))}
+              );
+            })}
           </div>
         </div>
 

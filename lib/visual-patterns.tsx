@@ -645,8 +645,8 @@ export function generateVisualQuestions(): VisualQuestion[] {
     questions.push({
       id: i,
       type: 'sequence',
-      sequence: variant.sequence,
-      options: [variant.correct, ...wrongOptions],
+      sequence: variant.sequence as PatternCell[],
+      options: [variant.correct, ...wrongOptions] as PatternCell[],
       correctAnswer: 0,
       difficulty: 'medium',
     });
@@ -709,8 +709,8 @@ export function generateVisualQuestions(): VisualQuestion[] {
     questions.push({
       id: i,
       type: 'matrix',
-      matrix: variant.matrix,
-      options: [variant.correct, ...wrongOptions],
+      matrix: variant.matrix as (PatternCell | null)[][],
+      options: [variant.correct, ...wrongOptions] as PatternCell[],
       correctAnswer: 0,
       difficulty: 'hard',
     });
@@ -771,8 +771,8 @@ export function generateVisualQuestions(): VisualQuestion[] {
     questions.push({
       id: i,
       type: 'sequence',
-      sequence: variant.sequence,
-      options: [variant.correct, ...wrongOptions],
+      sequence: variant.sequence as PatternCell[],
+      options: [variant.correct, ...wrongOptions] as PatternCell[],
       correctAnswer: 0,
       difficulty: 'hard',
     });

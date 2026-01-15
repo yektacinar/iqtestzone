@@ -71,7 +71,7 @@ export default function Home({ params }: { params: Promise<{ locale: Locale }> |
                   ))}
                 </div>
                 <p className="text-gray-700 italic mb-2">
-                  "{t.landing.socialProof.review}"
+                  &quot;{t.landing.socialProof.review}&quot;
                 </p>
                 <p className="text-sm text-gray-600">— {t.landing.socialProof.reviewer}</p>
               </div>

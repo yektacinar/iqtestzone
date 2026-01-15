@@ -227,7 +227,7 @@ export default function TestPage({ params }: { params: Promise<{ locale: Locale 
     } else {
       handleFinish(newAnswers, newTimeSpent);
     }
-  }, [selectedAnswer, answers, timeSpentByQuestionId, currentQuestion, handleFinish, initialSelection, playNextSound]);
+  }, [selectedAnswer, answers, timeSpentByQuestionId, currentQuestion, handleFinish, playNextSound]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);

@@ -55,7 +55,7 @@ function ensureDataDir() {
 export function getPurchases(): Purchase[] {
   ensureDataDir();
   try {
-    const data = fs.readFileSync(DB_FILE, 'utf-8');
+    const data = fs.readFileSync(PURCHASES_FILE, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     return [];
@@ -65,7 +65,7 @@ export function getPurchases(): Purchase[] {
 // Write purchases to file
 function savePurchases(purchases: Purchase[]) {
   ensureDataDir();
-  fs.writeFileSync(DB_FILE, JSON.stringify(purchases, null, 2));
+  fs.writeFileSync(PURCHASES_FILE, JSON.stringify(purchases, null, 2));
 }
 
 // Create a new purchase record
