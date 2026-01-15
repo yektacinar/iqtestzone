@@ -294,5 +294,94 @@
     "sending": "Gönderiliyor...",
     "cancel": "İptal",
     "loginRequired": "Satın alma işleminize devam etmek için lütfen giriş yapın"
+  },
+  "pricing": {
+    "title": "Fiyatlandırma",
+    "productName": "IQTestZone",
+    "productDescription": "Test performansınıza dayalı detaylı bilişsel içgörüler ve kişiselleştirilmiş öneriler sunan Premium IQ test analiz platformu.",
+    "whatYouGet": "Ne Alırsınız",
+    "detailedIQScore": "Detaylı IQ Skor Aralığı",
+    "detailedIQScoreDesc": "Kapsamlı analiz ve dökümle birlikte kesin IQ skor aralığınızı alın",
+    "extendedAnalysis": "Genişletilmiş Bilişsel Analiz",
+    "extendedAnalysisDesc": "Görsel desenler, sayı dizileri ve sözel akıl yürütme dahil olmak üzere birden fazla boyutta bilişsel performansınıza derinlemesine dalın",
+    "personalizedInsights": "Kişiselleştirilmiş İçgörüler",
+    "personalizedInsightsDesc": "Benzersiz test sonuçlarınıza ve bilişsel profilinize dayalı özel öneriler ve içgörüler alın",
+    "pricingOptions": "Fiyatlandırma Seçenekleri",
+    "recommended": "ÖNERİLEN",
+    "weeklySubscription": "Haftalık Abonelik",
+    "firstWeek": "ilk hafta",
+    "then": "Sonra",
+    "perWeek": "/hafta",
+    "subscriptionDescription": "Detaylı analiz, bilişsel döküm ve kişiselleştirilmiş içgörülerle premium özelliklere haftalık erişim.",
+    "unlockPremium": "Premium'u Aç",
+    "paymentNote": "Ödemeler Paddle tarafından güvenli bir şekilde işlenir.",
+    "disclaimer": "Bu test yalnızca eğlence ve kişisel içgörü amaçlıdır. Tıbbi, klinik veya profesyonel bir değerlendirme değildir."
+  },
+  "checkout": {
+    "title": "Ödeme",
+    "orderSummary": "Sipariş Özeti",
+    "productName": "IQTestZone Premium",
+    "productDescription": "Haftalık Premium Erişim - Tam AI destekli analiz, detaylı içgörüler ve ilerleme takibi",
+    "price": "Fiyat",
+    "total": "Toplam",
+    "paymentNote": "Ödemeler Paddle tarafından güvenli bir şekilde işlenir. Paddle, Merchant of Record'dur.",
+    "proceedToPayment": "Ödemeye Devam Et",
+    "cancel": "İptal",
+    "whatYouGet": "Ne alırsınız:",
+    "deliverable1": "Tam AI destekli bilişsel analiz",
+    "deliverable2": "Detaylı içgörüler ve dökümler",
+    "deliverable3": "İlerleme takibi",
+    "deliverable4": "Bir hafta için premium erişim"
+  },
+  "refundPolicy": {
+    "title": "İade Politikası",
+    "lastUpdated": "Son güncelleme",
+    "overview": {
+      "title": "Genel Bakış",
+      "text1": "IQTestZone'da satın alımınızdan tamamen memnun olmanızı istiyoruz. Bu İade Politikası, premium abonelikler ve tek seferlik satın alımlar için iade politikamızı açıklamaktadır.",
+      "text2": "Tüm ödemeler ödeme sağlayıcımız Paddle tarafından işlenir. Paddle, Merchant of Record olarak hareket eder ve iadeler dahil tüm ödeme ile ilgili konuları yönetir."
+    },
+    "howToRequest": {
+      "title": "İade Nasıl Talep Edilir",
+      "text1": "İade talebinde bulunmak için lütfen bizimle iletişime geçin:",
+      "text2": "İade talebinizde lütfen aşağıdaki bilgileri ekleyin:",
+      "info1": "İşlem kimliğiniz veya sipariş numaranız",
+      "info2": "Satın alma için kullanılan e-posta adresi",
+      "info3": "Satın alma tarihi",
+      "info4": "İade talebinizin nedeni"
+    },
+    "eligibility": {
+      "title": "İade Uygunluğu",
+      "text1": "Satın alımınızdan itibaren 14 gün içinde, aşağıdaki koşullar sağlandığında iade talep edebilirsiniz:",
+      "condition1": "Premium özellikleri önemli ölçüde kullanmamış olmanız",
+      "condition2": "İade talebinin 14 günlük süre içinde yapılması",
+      "condition3": "Talebin resmi destek kanallarımız üzerinden gönderilmesi",
+      "text2": "\"Önemli kullanım\" şu şekilde tanımlanır:",
+      "use1": "Detaylı PDF raporlarını birden fazla kez indirmek veya erişmek",
+      "use2": "Premium analiz özelliklerinin kapsamlı kullanımı",
+      "use3": "Hizmeti abonelik döneminin 7 gününden fazla kullanmak"
+    },
+    "processing": {
+      "title": "İadelerin İşlenmesi",
+      "text1": "İade talebiniz onaylandıktan sonra:",
+      "detail1": "İadeler orijinal ödeme yönteminize işlenecektir",
+      "detail2": "İşleme süresi genellikle birkaç iş günüdür",
+      "detail3": "İadeler Paddle üzerinden işlenir ve süre ödeme sağlayıcınıza bağlı olarak değişebilir",
+      "detail4": "İade işlendikten sonra bir e-posta onayı alacaksınız",
+      "text2": "Lütfen iadelerin hesabınızda görünmesi bankanızın veya kredi kartı şirketinizin işleme sürelerine bağlı olarak daha uzun sürebileceğini unutmayın."
+    },
+    "chargebacks": {
+      "title": "Ters İbraz / Chargeback",
+      "text": "Bir ücretle ilgili endişeleriniz varsa, ters ibraz başlatmadan önce destek ekibimizle support@iqtestzone.net üzerinden iletişime geçmenizi öneririz. Herhangi bir sorunu çözmeye kararlıyız ve sizinle birlikte tatmin edici bir çözüm bulmak için çalışacağız."
+    },
+    "contact": {
+      "title": "İletişim",
+      "text": "Bu İade Politikası hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:",
+      "email": "E-posta:"
+    },
+    "note": {
+      "text": "Bu politika Hizmet Şartlarımız ve Paddle'ın iade politikası ile birlikte çalışır. Paddle'ın iade politikası hakkında daha fazla bilgi için lütfen ziyaret edin:",
+      "link": "https://paddle.com/support/refund-policy"
+    }
   }
 }

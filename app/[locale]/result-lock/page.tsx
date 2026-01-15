@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { calculateIQScore } from '@/lib/questions';
 import { useTranslations } from '@/lib/use-translations';
 import { type Locale } from '@/lib/i18n';
@@ -11,6 +11,7 @@ import { useQuizNavigationGuard } from '@/lib/navigation-guard';
 
 export default function ResultLockPage({ params }: { params: Promise<{ locale: Locale }> | { locale: Locale } }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const locale = 'then' in params ? 'en' : params.locale;
   const t = useTranslations(locale);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -21,9 +22,24 @@ export default function ResultLockPage({ params }: { params: Promise<{ locale: L
   const [result, setResult] = useState<any>(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [user, setUser] = useState<{ id: string; email: string } | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   // Use navigation guard for route-level protection
   useQuizNavigationGuard(locale);
+
+  // Check for error messages from payment flow
+  useEffect(() => {
+    const error = searchParams.get('error');
+    const message = searchParams.get('message');
+    if (error && message) {
+      setErrorMessage(decodeURIComponent(message));
+      // Clear error from URL
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.delete('error');
+      newUrl.searchParams.delete('message');
+      window.history.replaceState({}, '', newUrl.toString());
+    }
+  }, [searchParams]);
 
   // Debug: Log translation loading
   useEffect(() => {
@@ -113,8 +129,8 @@ export default function ResultLockPage({ params }: { params: Promise<{ locale: L
     // Store result (don't set premium yet - wait for webhook confirmation)
     sessionStorage.setItem('iqResult', JSON.stringify(calculatedResult));
 
-    // Redirect to payment
-    router.push(`/api/payment?type=premium&locale=${locale}`);
+    // Redirect to checkout page
+    router.push(`/${locale}/checkout?plan=one_time&price=1&currency=EUR`);
   };
 
   const handleLoginSuccess = async () => {
@@ -174,6 +190,21 @@ export default function ResultLockPage({ params }: { params: Promise<{ locale: L
             </div>
           )}
 
+          {/* Error Message */}
+          {errorMessage && (
+            <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-6">
+              <p className="text-red-800 text-sm font-semibold mb-2">Payment Error</p>
+              <p className="text-red-700 text-sm">{errorMessage}</p>
+              <p className="text-red-600 text-xs mt-2">
+                Please contact support at{' '}
+                <a href="mailto:support@iqtestzone.net" className="underline font-medium">
+                  support@iqtestzone.net
+                </a>
+                {' '}if the problem persists.
+              </p>
+            </div>
+          )}
+
           {/* Action Buttons */}
           {!isCalculating && !showFreeResult && (
             <div className="space-y-4">
@@ -218,6 +249,9 @@ export default function ResultLockPage({ params }: { params: Promise<{ locale: L
                 </button>
                 <p className="text-xs text-gray-400 mt-3">
                   {t.resultLock?.renewalDisclaimer || 'Renews weekly. Cancel anytime.'}
+                </p>
+                <p className="text-xs text-yellow-200 mt-4 pt-4 border-t border-gray-700">
+                  <strong>Disclaimer:</strong> This test is for entertainment and personal insight only. It is not a medical, clinical, or professional assessment.
                 </p>
               </div>
             </div>
@@ -279,6 +313,9 @@ export default function ResultLockPage({ params }: { params: Promise<{ locale: L
                 </button>
                 <p className="text-xs text-gray-400 mt-3">
                   {t.resultLock?.renewalDisclaimer || 'Renews weekly. Cancel anytime.'}
+                </p>
+                <p className="text-xs text-yellow-200 mt-4 pt-4 border-t border-gray-700">
+                  <strong>Disclaimer:</strong> This test is for entertainment and personal insight only. It is not a medical, clinical, or professional assessment.
                 </p>
               </div>
             </div>

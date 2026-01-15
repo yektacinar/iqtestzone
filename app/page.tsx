@@ -54,6 +54,9 @@ export default function Home() {
           >
             Teste Başla
           </button>
+          <p className="text-xs text-yellow-700 bg-yellow-50 border border-yellow-200 rounded px-4 py-2 mt-4 inline-block">
+            <strong>Disclaimer:</strong> This test is for entertainment and personal insight only. It is not a medical, clinical, or professional assessment.
+          </p>
         </div>
 
         {/* Footer Disclaimer */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -23,6 +24,12 @@ export default function TermsPage() {
             <p>
               Our Service provides an online IQ test for entertainment and personal awareness purposes. This test is not intended for scientific or clinical diagnostic purposes.
             </p>
+            <div className="bg-gray-50 rounded-lg p-4 mt-4">
+              <p className="font-semibold mb-2">Business Information:</p>
+              <p>
+                This service is operated by <strong>[Your Legal Name]</strong>, acting as a sole proprietor under the brand name IQTestZone.
+              </p>
+            </div>
           </section>
 
           {/* Section 2: Eligibility */}
@@ -68,7 +75,7 @@ export default function TermsPage() {
             </p>
             <h3 className="text-xl font-semibold text-black mt-4 mb-2">4.1 Payment Processing</h3>
             <p>
-              All payments are processed securely through Paddle, our third-party payment processor. By making a purchase, you agree to Paddle&apos;s terms and conditions. We do not store your complete payment card information on our servers.
+              All payments are processed securely through Paddle, our payment provider. Paddle acts as the Merchant of Record for all transactions. By making a purchase, you agree to Paddle&apos;s terms and conditions. We do not store your complete payment card information on our servers.
             </p>
             <h3 className="text-xl font-semibold text-black mt-4 mb-2">4.2 Subscription Plans</h3>
             <p>
@@ -88,32 +95,25 @@ export default function TermsPage() {
             </p>
           </section>
 
-          {/* Section 5: Refund Policy */}
+          {/* Section 5: Refunds */}
           <section>
-            <h2 className="text-2xl font-bold text-black mb-4">5. Refund Policy</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">5. Refunds</h2>
             <p>
-              We offer refunds in accordance with the following terms:
+              Refunds are handled in accordance with Paddle&apos;s refund policy. You may request a refund within 
+              <strong> 14 days</strong> of your initial purchase if no substantial use has occurred.
             </p>
-            <h3 className="text-xl font-semibold text-black mt-4 mb-2">5.1 Refund Eligibility</h3>
-            <p>
-              You may request a refund within 14 days of your initial purchase, provided you have not substantially used the premium features. Refund requests must be submitted through our contact information provided below.
+            <p className="mt-4">
+              &quot;Substantial use&quot; includes downloading PDF reports, extensive use of premium analysis features, 
+              or using the service for more than 7 days of the subscription period.
             </p>
-            <h3 className="text-xl font-semibold text-black mt-4 mb-2">5.2 Processing Refunds</h3>
-            <p>
-              Approved refunds will be processed to the original payment method within 5-10 business days. Refunds are processed through Paddle, and the timing may vary depending on your payment provider.
+            <p className="mt-4">
+              To request a refund, please contact us at <a href="mailto:support@iqtestzone.net" className="text-blue-600 hover:underline">support@iqtestzone.net</a> 
+              {' '}with your transaction details. Refund requests are processed through Paddle, and approved refunds 
+              will be credited to your original payment method within 5-10 business days.
             </p>
-            <h3 className="text-xl font-semibold text-black mt-4 mb-2">5.3 Non-Refundable Items</h3>
-            <p>
-              The following are not eligible for refunds:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Subscriptions that have been active for more than 14 days</li>
-              <li>Subscriptions where premium features have been substantially used</li>
-              <li>Refund requests made after the subscription has been cancelled and the billing period has ended</li>
-            </ul>
-            <h3 className="text-xl font-semibold text-black mt-4 mb-2">5.4 Cancellation</h3>
-            <p>
-              You may cancel your subscription at any time. Cancellation will take effect at the end of your current billing period. You will continue to have access to premium features until the end of the paid period.
+            <p className="mt-4">
+              For complete refund policy details, please see our{' '}
+              <Link href="/refund-policy" className="text-blue-600 hover:underline">Refund Policy page</Link>.
             </p>
           </section>
 
@@ -220,13 +220,10 @@ export default function TermsPage() {
             </p>
             <div className="bg-gray-50 rounded-lg p-4 mt-4">
               <p className="font-semibold mb-2">Email:</p>
-              <p>support@example.com</p>
-              <p className="font-semibold mt-4 mb-2">Mailing Address:</p>
               <p>
-                [Your Company Name]<br />
-                [Your Address]<br />
-                [City, State, ZIP Code]<br />
-                [Country]
+                <a href="mailto:support@iqtestzone.net" className="text-blue-600 hover:underline">
+                  support@iqtestzone.net
+                </a>
               </p>
             </div>
             <p className="mt-4">

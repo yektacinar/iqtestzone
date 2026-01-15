@@ -294,5 +294,94 @@
     "sending": "Sending...",
     "cancel": "Cancel",
     "loginRequired": "Please sign in to continue with your purchase"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "productName": "IQTestZone",
+    "productDescription": "Premium IQ test analysis platform that provides detailed cognitive insights and personalized recommendations based on your test performance.",
+    "whatYouGet": "What You Get",
+    "detailedIQScore": "Detailed IQ Score Range",
+    "detailedIQScoreDesc": "Get your precise IQ score range with comprehensive analysis and breakdown",
+    "extendedAnalysis": "Extended Cognitive Analysis",
+    "extendedAnalysisDesc": "Deep dive into your cognitive performance across multiple dimensions including visual patterns, number sequences, and verbal reasoning",
+    "personalizedInsights": "Personalized Insights",
+    "personalizedInsightsDesc": "Receive tailored recommendations and insights based on your unique test results and cognitive profile",
+    "pricingOptions": "Pricing Options",
+    "recommended": "RECOMMENDED",
+    "weeklySubscription": "Weekly Subscription",
+    "firstWeek": "first week",
+    "then": "Then",
+    "perWeek": "/week",
+    "subscriptionDescription": "Weekly access to premium features with detailed analysis, cognitive breakdown, and personalized insights.",
+    "unlockPremium": "Unlock Premium",
+    "paymentNote": "Payments are securely processed by Paddle.",
+    "disclaimer": "This test is for entertainment and personal insight only. It is not a medical, clinical, or professional assessment."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "orderSummary": "Order Summary",
+    "productName": "IQTestZone Premium",
+    "productDescription": "Weekly Premium Access - Full AI-powered analysis, detailed insights, and progress tracking",
+    "price": "Price",
+    "total": "Total",
+    "paymentNote": "Payments are securely processed by Paddle. Paddle is the Merchant of Record.",
+    "proceedToPayment": "Proceed to Payment",
+    "cancel": "Cancel",
+    "whatYouGet": "What you get:",
+    "deliverable1": "Full AI-powered cognitive analysis",
+    "deliverable2": "Detailed insights and breakdowns",
+    "deliverable3": "Progress tracking",
+    "deliverable4": "Premium access for one week"
+  },
+  "refundPolicy": {
+    "title": "Refund Policy",
+    "lastUpdated": "Last updated",
+    "overview": {
+      "title": "Overview",
+      "text1": "At IQTestZone, we want you to be completely satisfied with your purchase. This Refund Policy explains our policy regarding refunds for premium subscriptions and one-time purchases.",
+      "text2": "All payments are processed by Paddle, our payment provider. Paddle acts as the Merchant of Record and handles all payment-related matters, including refunds."
+    },
+    "howToRequest": {
+      "title": "How to Request a Refund",
+      "text1": "To request a refund, please contact us at:",
+      "text2": "Please include the following information in your refund request:",
+      "info1": "Your transaction ID or order number",
+      "info2": "The email address used for the purchase",
+      "info3": "The date of purchase",
+      "info4": "Reason for the refund request"
+    },
+    "eligibility": {
+      "title": "Refund Eligibility",
+      "text1": "You may request a refund within 14 days of your initial purchase, provided that:",
+      "condition1": "You have not substantially used the premium features",
+      "condition2": "The refund request is made within the 14-day window",
+      "condition3": "The request is submitted through our official support channels",
+      "text2": "\"Substantial use\" is defined as:",
+      "use1": "Downloading or accessing detailed PDF reports multiple times",
+      "use2": "Extensive use of premium analysis features",
+      "use3": "Using the service for more than 7 days of the subscription period"
+    },
+    "processing": {
+      "title": "Processing Refunds",
+      "text1": "Once your refund request is approved:",
+      "detail1": "Refunds will be processed to the original payment method",
+      "detail2": "Processing time is typically 5-10 business days (or a few business days)",
+      "detail3": "Refunds are processed through Paddle, and timing may vary depending on your payment provider",
+      "detail4": "You will receive an email confirmation once the refund has been processed",
+      "text2": "Please note that refunds may take longer to appear in your account depending on your bank or credit card company's processing times."
+    },
+    "chargebacks": {
+      "title": "Chargebacks",
+      "text": "If you have concerns about a charge, we encourage you to contact our support team first at support@iqtestzone.net before initiating a chargeback. We are committed to resolving any issues and will work with you to find a satisfactory solution."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "text": "If you have any questions about this Refund Policy, please contact us:",
+      "email": "Email:"
+    },
+    "note": {
+      "text": "This policy works together with our Terms of Service and Paddle's refund policy. For more information about Paddle's refund policy, please visit:",
+      "link": "https://paddle.com/support/refund-policy"
+    }
   }
 }

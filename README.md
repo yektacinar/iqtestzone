@@ -11,8 +11,8 @@ A conversion-optimized, multilingual IQ test platform designed for global Google
 - **Flexible Monetization**:
   - **Free**: Basic IQ range after watching a mock ad (15-20 seconds)
   - **Paid**: Detailed PDF report with cognitive breakdown ($79 USD)
-- **Mock Modes**: Test locally without Stripe keys or real ad providers
-- **Stripe Integration**: Production-ready payment processing with mock fallback
+- **Mock Modes**: Test locally without payment provider keys or real ad providers
+- **Paddle Integration**: Production-ready payment processing with Paddle as Merchant of Record
 - **PDF Reports**: Detailed cognitive analysis for premium users
 - **Google Ads Compliant**: Proper disclaimers in all languages
 
@@ -22,7 +22,7 @@ A conversion-optimized, multilingual IQ test platform designed for global Google
 - React 18
 - TypeScript
 - Tailwind CSS
-- Stripe (Payment processing)
+- Paddle (Payment processing & Merchant of Record)
 - jsPDF (PDF generation)
 - i18n routing with middleware
 
@@ -45,7 +45,7 @@ cp .env.example .env.local
 Edit `.env.local` with your configuration:
 
 ```env
-# Payment Mode: 'mock' for local testing, 'paddle' or 'stripe' for production
+# Payment Mode: 'mock' for local testing, 'paddle' for production
 NEXT_PUBLIC_PAYMENT_MODE=mock
 
 # Paddle Configuration (required when NEXT_PUBLIC_PAYMENT_MODE=paddle)
@@ -54,11 +54,6 @@ PADDLE_ENVIRONMENT=sandbox
 PADDLE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 PADDLE_VENDOR_ID=your_vendor_id
 PADDLE_PRODUCT_ID=your_product_id
-
-# Stripe Configuration (required when NEXT_PUBLIC_PAYMENT_MODE=stripe)
-STRIPE_SECRET_KEY=sk_test_your_secret_key_here
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_publishable_key_here
-STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 
 # App URL
 NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -87,11 +82,6 @@ MOCK_PREMIUM_ACTIVE=false
 - Set `NEXT_PUBLIC_AD_MODE=real` (when you integrate a real ad provider)
 - Update `NEXT_PUBLIC_APP_URL` to your production domain
 
-**For Production with Stripe:**
-- Set `NEXT_PUBLIC_PAYMENT_MODE=stripe`
-- Add your Stripe keys
-- Set `NEXT_PUBLIC_AD_MODE=real` (when you integrate a real ad provider)
-- Update `NEXT_PUBLIC_APP_URL` to your production domain
 
 ### 3. Run Development Server
 
@@ -124,7 +114,7 @@ iq-test-app/
 │   │       └── page.tsx       # Result display
 │   ├── api/
 │   │   └── payment/
-│   │       └── route.ts       # Stripe payment API
+│   │       └── route.ts       # Paddle payment API
 │   ├── layout.tsx              # Root layout
 │   └── globals.css             # Global styles
 ├── components/
@@ -178,7 +168,7 @@ Users can manually switch languages using the language switcher in the top-right
 ### Paid Path (Weekly Subscription)
 1. User clicks "Start 1€ Trial" on results gate
 2. If not logged in, login modal appears (email magic link)
-3. After authentication, redirects to Stripe Checkout for weekly subscription
+3. After authentication, redirects to Paddle checkout for weekly subscription
 4. After successful payment, webhook updates user entitlement
 5. User gets premium access with:
    - Exact IQ score
@@ -224,8 +214,8 @@ The application includes a minimal membership system for weekly subscription man
   userId: string;
   premiumActive: boolean;
   premiumUntil: string | null;  // ISO date string
-  providerCustomerId: string | null;  // Stripe customer ID
-  providerSubscriptionId: string | null;  // Stripe subscription ID
+  providerCustomerId: string | null;  // Paddle customer ID
+  providerSubscriptionId: string | null;  // Paddle subscription ID
   updatedAt: string;
 }
 ```
@@ -240,15 +230,14 @@ The application includes a minimal membership system for weekly subscription man
 2. **Subscription Purchase:**
    - User clicks "Start 1€ Trial" on result lock page
    - If not authenticated, login modal appears
-   - After login, redirected to Stripe Checkout
+   - After login, redirected to Paddle checkout
    - Checkout includes `userId` in metadata
 
 3. **Webhook Processing:**
-   - Stripe webhook receives subscription events:
-     - `checkout.session.completed` - Maps subscription to user
-     - `customer.subscription.created/updated` - Updates entitlement
-     - `invoice.payment_succeeded` - Refreshes premium access
-     - `customer.subscription.deleted` - Revokes premium access
+   - Paddle webhook receives subscription events:
+     - Subscription created/updated - Maps subscription to user
+     - Payment succeeded - Updates entitlement and refreshes premium access
+     - Subscription cancelled - Revokes premium access
    - Entitlement updated with:
      - `premiumActive: true`
      - `premiumUntil: <subscription period end>`
@@ -323,21 +312,23 @@ await sendEmail({
 
 ### Mock Mode (Development)
 - Set `NEXT_PUBLIC_PAYMENT_MODE=mock` in `.env.local`
-- Payments are simulated without Stripe
+- Payments are simulated without a payment provider
 - Users are redirected to results page with mock session ID
 - Perfect for local development and testing
 
-### Stripe Mode (Production)
-1. Sign up at [Stripe](https://stripe.com)
-2. Go to Developers > API keys
-3. Copy your test keys for development
-4. Use live keys for production
-5. Set `NEXT_PUBLIC_PAYMENT_MODE=stripe`
-6. Add `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+### Paddle Mode (Production)
+1. Sign up at [Paddle](https://paddle.com)
+2. Configure your Paddle account and products
+3. Get your API keys from Paddle dashboard
+4. Set `NEXT_PUBLIC_PAYMENT_MODE=paddle`
+5. Add Paddle configuration (see `ENV_SETUP.md` for details)
+6. Configure webhook: `https://yourdomain.com/api/webhook/paddle`
 
 **Pricing:**
 - Full Report: $79 USD
 - Currency: USD (can be changed in payment route)
+
+**Note:** Paddle acts as the Merchant of Record for all transactions.
 
 ## Ad Integration
 
@@ -398,9 +389,8 @@ All pages include translated disclaimers:
 1. Push code to GitHub
 2. Import project in [Vercel](https://vercel.com)
 3. Add environment variables in Vercel dashboard:
-   - `NEXT_PUBLIC_PAYMENT_MODE=stripe`
-   - `STRIPE_SECRET_KEY=sk_live_...`
-   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...`
+   - `NEXT_PUBLIC_PAYMENT_MODE=paddle`
+   - Paddle configuration variables (see `ENV_SETUP.md`)
    - `NEXT_PUBLIC_APP_URL=https://yourdomain.com`
    - `NEXT_PUBLIC_AD_MODE=real` (when ready)
 4. Deploy

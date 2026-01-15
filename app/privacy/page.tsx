@@ -33,7 +33,8 @@ export default function PrivacyPage() {
               We collect information that you provide directly to us, including:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Account information (username, email address, password)</li>
+              <li><strong>Email address:</strong> Used for account creation, login, and communication</li>
+              <li>Account information (username, password)</li>
               <li>Profile information (if you choose to provide it)</li>
               <li>Test responses and results</li>
               <li>Communication data when you contact us for support</li>
@@ -43,14 +44,21 @@ export default function PrivacyPage() {
               When you use our Service, we automatically collect certain information, including:
             </p>
             <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Usage analytics:</strong> Pages visited, time spent, features used, interaction patterns</li>
               <li>Device information (device type, operating system, browser type)</li>
-              <li>Usage data (pages visited, time spent, features used)</li>
               <li>IP address and approximate location</li>
               <li>Log data (access times, error logs)</li>
             </ul>
-            <h3 className="text-xl font-semibold text-black mt-4 mb-2">2.3 Payment Information</h3>
+            <h3 className="text-xl font-semibold text-black mt-4 mb-2">2.3 Cookies</h3>
             <p>
-              Payment information is processed securely through Paddle, our third-party payment processor. We do not store your complete payment card information on our servers. Paddle handles all payment data in accordance with their privacy policy and PCI DSS compliance standards.
+              We use cookies and similar tracking technologies to enhance your experience. Cookies help us remember your preferences, 
+              maintain your session, and analyze how you use our Service. For more details, see Section 4: Cookies and Tracking Technologies.
+            </p>
+            <h3 className="text-xl font-semibold text-black mt-4 mb-2">2.4 Payment Information</h3>
+            <p>
+              Payment information is processed securely through Paddle, our payment provider and Merchant of Record. We do not store 
+              your complete payment card information on our servers. Paddle handles all payment data in accordance with their privacy 
+              policy and PCI DSS compliance standards.
             </p>
           </section>
 
@@ -102,21 +110,37 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-black mb-4">5. Payment Processing via Paddle</h2>
             <p>
-              When you make a purchase through our Service, payments are processed by Paddle, a third-party payment processor. Paddle handles all payment transactions securely and in compliance with PCI DSS standards.
+              When you make a purchase through our Service, payments are processed by <strong>Paddle</strong>, our payment provider. 
+              <strong> Paddle acts as the Merchant of Record</strong> and handles all payment transactions securely and in compliance with PCI DSS standards.
             </p>
-            <p>
+            <p className="mt-4">
+              As the Merchant of Record, Paddle is responsible for:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-2">
+              <li>Processing all payment transactions</li>
+              <li>Handling refunds and chargebacks</li>
+              <li>Managing tax collection and remittance</li>
+              <li>Compliance with payment card industry standards</li>
+            </ul>
+            <p className="mt-4">
               Information shared with Paddle includes:
             </p>
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className="list-disc pl-6 space-y-2 mt-2">
               <li>Payment method information (credit card details, billing address)</li>
               <li>Transaction details (amount, currency, subscription type)</li>
               <li>Account information necessary to process the transaction</li>
+              <li>Email address for transaction receipts and communications</li>
             </ul>
-            <p>
-              Paddle&apos;s use of your personal information is governed by their Privacy Policy. We encourage you to review Paddle&apos;s Privacy Policy at <a href="https://paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://paddle.com/legal/privacy</a>.
+            <p className="mt-4">
+              Paddle&apos;s use of your personal information is governed by their Privacy Policy. We encourage you to review 
+              Paddle&apos;s Privacy Policy at{' '}
+              <a href="https://paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                https://paddle.com/legal/privacy
+              </a>.
             </p>
-            <p>
-              We receive limited information from Paddle about your transactions, such as payment status and subscription details, which we use to manage your account and provide customer support.
+            <p className="mt-4">
+              We receive limited information from Paddle about your transactions, such as payment status and subscription details, 
+              which we use to manage your account and provide customer support.
             </p>
           </section>
 
@@ -254,13 +278,10 @@ export default function PrivacyPage() {
             </p>
             <div className="bg-gray-50 rounded-lg p-4 mt-4">
               <p className="font-semibold mb-2">Email:</p>
-              <p>privacy@example.com</p>
-              <p className="font-semibold mt-4 mb-2">Mailing Address:</p>
               <p>
-                [Your Company Name]<br />
-                [Your Address]<br />
-                [City, State, ZIP Code]<br />
-                [Country]
+                <a href="mailto:support@iqtestzone.net" className="text-blue-600 hover:underline">
+                  support@iqtestzone.net
+                </a>
               </p>
             </div>
             <p className="mt-4">

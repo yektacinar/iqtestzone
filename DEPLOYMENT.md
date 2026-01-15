@@ -11,8 +11,12 @@
    
    Create `.env.local` file:
    ```env
-   STRIPE_SECRET_KEY=sk_live_your_secret_key
-   STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
+   NEXT_PUBLIC_PAYMENT_MODE=paddle
+   PADDLE_API_KEY=your_paddle_api_key
+   PADDLE_ENVIRONMENT=production
+   PADDLE_WEBHOOK_SECRET=whsec_your_webhook_secret
+   PADDLE_VENDOR_ID=your_vendor_id
+   PADDLE_PRODUCT_ID=your_product_id
    NEXT_PUBLIC_APP_URL=https://yourdomain.com
    ```
 
@@ -27,28 +31,29 @@
    npm start
    ```
 
-## Stripe Setup
+## Paddle Setup
 
-### 1. Create Stripe Account
-- Go to https://stripe.com
+### 1. Create Paddle Account
+- Go to https://paddle.com
 - Create an account
 - Complete business verification
 
 ### 2. Get API Keys
-- Dashboard → Developers → API keys
-- Copy Secret Key and Publishable Key
+- Dashboard → Developer Tools → Authentication
+- Generate API key
+- Copy API key, Vendor ID, and Product ID
 - Add to `.env.local`
 
-### 3. Configure Webhooks (Optional but Recommended)
-- Dashboard → Developers → Webhooks
-- Add endpoint: `https://yourdomain.com/api/webhook`
-- Select events: `checkout.session.completed`
+### 3. Configure Webhooks (Required)
+- Dashboard → Developer Tools → Notifications
+- Add endpoint: `https://yourdomain.com/api/webhook/paddle`
+- Select events: Subscription created, updated, cancelled, payment succeeded
 - Copy webhook signing secret to `.env.local`
 
 ### 4. Test Mode
-- Use test keys for development
-- Test card: `4242 4242 4242 4242`
-- Any future expiry date and CVC
+- Use sandbox environment for development
+- Set `PADDLE_ENVIRONMENT=sandbox`
+- Test with Paddle test cards
 
 ## Vercel Deployment (Recommended)
 
@@ -92,7 +97,7 @@
 ## Post-Deployment Checklist
 
 - [ ] Environment variables configured
-- [ ] Stripe keys set (production keys)
+- [ ] Paddle keys set (production keys)
 - [ ] Domain configured
 - [ ] SSL certificate active
 - [ ] Test payment flow
@@ -105,7 +110,7 @@
 ## Monitoring
 
 - Set up error tracking (Sentry, LogRocket)
-- Monitor Stripe dashboard for payments
+- Monitor Paddle dashboard for payments
 - Track conversion rates
 - Monitor page load times
 
@@ -113,13 +118,15 @@
 
 - Never commit `.env.local` to git
 - Use environment variables for all secrets
-- Enable Stripe webhook signature verification
+- Enable Paddle webhook signature verification
 - Use HTTPS in production
 - Regularly update dependencies
 
 ## Support
 
 For issues or questions:
-- Check Stripe documentation: https://stripe.com/docs
+- Check Paddle documentation: https://developer.paddle.com
 - Next.js documentation: https://nextjs.org/docs
 - Review application logs
+
+**Note:** Paddle acts as the Merchant of Record for all transactions.

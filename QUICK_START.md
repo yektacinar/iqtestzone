@@ -11,12 +11,11 @@ npm install
 ### Step 2: Configure Environment
 Create `.env.local` file:
 ```env
-STRIPE_SECRET_KEY=sk_test_your_key_here
-STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
+NEXT_PUBLIC_PAYMENT_MODE=mock
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-**Note**: For testing without Stripe, you can skip this step. The app will use mock payments.
+**Note**: For testing without a payment provider, you can skip Paddle configuration. The app will use mock payments.
 
 ### Step 3: Run Development Server
 ```bash
@@ -58,8 +57,8 @@ Edit `tailwind.config.ts` or use Tailwind classes directly.
 
 ## 🐛 Troubleshooting
 
-**Issue**: Stripe errors
-- **Solution**: Use test mode keys or skip Stripe setup for development
+**Issue**: Payment errors
+- **Solution**: Use mock mode for development or configure Paddle in sandbox mode
 
 **Issue**: PDF not generating
 - **Solution**: Ensure jsPDF is installed: `npm install jspdf`

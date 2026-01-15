@@ -35,6 +35,18 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
+  // Special redirect for /pricing to /tr/pricing (default locale)
+  if (pathname === '/pricing') {
+    const newUrl = new URL('/tr/pricing', request.url);
+    return NextResponse.redirect(newUrl);
+  }
+  
+  // Special redirect for /refund-policy to /tr/refund-policy (default locale)
+  if (pathname === '/refund-policy') {
+    const newUrl = new URL('/tr/refund-policy', request.url);
+    return NextResponse.redirect(newUrl);
+  }
+  
   // Check if pathname already has a locale
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`

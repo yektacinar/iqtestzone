@@ -112,9 +112,9 @@ Use this checklist to validate the complete flow before production deployment.
 ### Payment Flow
 - [ ] Mock mode: Clicking "Get Full Report" redirects to result page
 - [ ] Mock mode: Session ID appears in URL (`session_id=mock_...`)
-- [ ] Stripe mode: Clicking "Get Full Report" redirects to Stripe Checkout
-- [ ] Stripe mode: Payment success redirects to result page
-- [ ] Stripe mode: Payment cancel redirects to result-lock page
+- [ ] Paddle mode: Clicking "Get Full Report" redirects to Paddle checkout
+- [ ] Paddle mode: Payment success redirects to result page
+- [ ] Paddle mode: Payment cancel redirects to result-lock page
 - [ ] Locale preserved in payment redirects
 
 ### Translations Quality
@@ -162,11 +162,11 @@ Use this checklist to validate the complete flow before production deployment.
 ## Production Deployment Checklist
 
 ### Before Deploying
-- [ ] Set `NEXT_PUBLIC_PAYMENT_MODE=stripe` in production env
-- [ ] Add Stripe production keys
+- [ ] Set `NEXT_PUBLIC_PAYMENT_MODE=paddle` in production env
+- [ ] Add Paddle production keys
 - [ ] Set `NEXT_PUBLIC_APP_URL` to production domain
 - [ ] Set `NEXT_PUBLIC_AD_MODE=real` (when ad provider ready)
-- [ ] Test Stripe checkout with test cards
+- [ ] Test Paddle checkout with test cards
 - [ ] Verify webhook endpoint (if using)
 
 ### After Deploying
@@ -180,7 +180,7 @@ Use this checklist to validate the complete flow before production deployment.
 ## Known Issues / Notes
 
 - Mock ad is simulated (15-20 second countdown)
-- Mock payment bypasses Stripe (for local testing)
+- Mock payment bypasses payment provider (for local testing)
 - Old routes (`/test`, `/result`) redirect via middleware
 - Language preference stored in cookie
 

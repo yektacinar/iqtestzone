@@ -425,6 +425,9 @@ export default function ResultPage({ params }: { params: Promise<{ locale: Local
               <p className="text-xs text-gray-400 mt-3 text-center">
                 {t.result.renewalDisclaimer || 'Renews weekly. Cancel anytime.'}
               </p>
+              <p className="text-xs text-yellow-200 mt-4 pt-4 border-t border-gray-700 text-center">
+                <strong>Disclaimer:</strong> This test is for entertainment and personal insight only. It is not a medical, clinical, or professional assessment.
+              </p>
             </div>
           )}
         </div>

@@ -2,11 +2,11 @@
 
 ## Overview
 
-The application now supports Paddle as a Merchant of Record (MoR) payment provider alongside Stripe and mock payments.
+The application uses Paddle as the Merchant of Record (MoR) payment provider for all transactions, with mock mode available for local development.
 
 ## Features
 
-- ✅ Payment provider abstraction (mock | paddle | stripe)
+- ✅ Payment provider abstraction (mock | paddle)
 - ✅ Paddle Checkout integration (Classic and Billing API)
 - ✅ Webhook endpoint with signature verification
 - ✅ Purchase status tracking in file-based database
@@ -22,7 +22,6 @@ The application now supports Paddle as a Merchant of Record (MoR) payment provid
 3. Payment route:
    - **Mock**: Creates purchase record, redirects to result
    - **Paddle**: Creates pending purchase, redirects to Paddle checkout
-   - **Stripe**: Creates Stripe checkout session
 4. After payment:
    - Paddle webhook → updates purchase status → user gets premium access
    - Result page checks purchase status from database

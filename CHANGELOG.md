@@ -67,7 +67,7 @@ Upgraded the existing IQ test application into a global, multilingual platform w
    - IQ ranges only (not exact scores for free)
 
 5. **Production Ready**
-   - Stripe integration with mock fallback
+   - Paddle integration with mock fallback (Paddle as Merchant of Record)
    - Environment-based configuration
    - Vercel deployment ready
 
@@ -81,7 +81,7 @@ Upgraded the existing IQ test application into a global, multilingual platform w
 
 ### Environment Variables
 New variables added:
-- `NEXT_PUBLIC_PAYMENT_MODE` (mock|stripe)
+- `NEXT_PUBLIC_PAYMENT_MODE` (mock|paddle)
 - `NEXT_PUBLIC_AD_MODE` (mock|real)
 - `NEXT_PUBLIC_APP_URL`
 
@@ -106,7 +106,7 @@ New variables added:
 
 1. Test all 7 languages end-to-end
 2. Integrate real ad provider (replace mock ad)
-3. Set up Stripe for production
+3. Set up Paddle for production
 4. Deploy to Vercel
 5. Add analytics tracking
 6. A/B test pricing and ad duration

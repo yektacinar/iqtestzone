@@ -14,8 +14,16 @@ export async function GET(request: NextRequest) {
   let purchase = null;
 
   if (transactionId) {
-    purchase = getPurchaseByTransactionId(transactionId);
-    hasAccess = purchase?.status === 'completed' || false;
+    // Don't grant access for error or mock transactions (unless explicitly allowed in dev)
+    if (transactionId.startsWith('error_')) {
+      hasAccess = false;
+    } else if (transactionId.startsWith('mock_') && process.env.NODE_ENV === 'production') {
+      // Mock transactions should not grant access in production
+      hasAccess = false;
+    } else {
+      purchase = getPurchaseByTransactionId(transactionId);
+      hasAccess = purchase?.status === 'completed' || false;
+    }
   } else if (sessionId) {
     hasAccess = hasPremiumAccess(sessionId);
   }

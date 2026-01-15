@@ -32,7 +32,7 @@
 - ✅ Urgency text: "Sonuçlar 24 saat saklanır."
 
 ### 4. Payment Integration (`/api/payment`)
-- ✅ Stripe integration
+- ✅ Paddle integration (Merchant of Record)
 - ✅ Two pricing tiers (49 TL / 79 TL)
 - ✅ One-time payment only
 - ✅ Auto-redirect to results after payment
@@ -106,8 +106,8 @@
 iq-test-app/
 ├── app/
 │   ├── api/
-│   │   ├── payment/route.ts      # Stripe payment handler
-│   │   └── webhook/route.ts      # Stripe webhook handler
+│   │   ├── payment/route.ts      # Paddle payment handler
+│   │   └── webhook/route.ts      # Paddle webhook handler
 │   ├── test/page.tsx             # IQ test interface
 │   ├── result-lock/page.tsx      # Payment wall
 │   ├── result/page.tsx           # Results display
@@ -131,7 +131,7 @@ iq-test-app/
 The application is fully functional and ready to deploy:
 
 1. **Install dependencies**: `npm install`
-2. **Configure Stripe**: Add keys to `.env.local`
+2. **Configure Paddle**: Add keys to `.env.local`
 3. **Deploy**: Push to Vercel, Netlify, or any Next.js host
 4. **Test**: Verify payment flow and PDF generation
 
@@ -140,7 +140,7 @@ The application is fully functional and ready to deploy:
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Payment**: Stripe
+- **Payment**: Paddle (Merchant of Record)
 - **PDF**: jsPDF
 - **Deployment**: Ready for Vercel/Netlify/AWS
 
@@ -167,7 +167,7 @@ The application is fully functional and ready to deploy:
 ## 🔒 Security & Compliance
 
 - Environment variables for secrets
-- Stripe webhook verification
+- Paddle webhook verification
 - No sensitive data in client-side code
 - Legal disclaimers on all pages
 - GDPR-friendly (no user data storage)

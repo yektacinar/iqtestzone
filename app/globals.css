@@ -68,10 +68,7 @@ textarea,
   cursor: text;
 }
 
-/* Payment/card input fields (Stripe Elements, etc.) */
-.StripeElement,
-.stripe-element,
-[data-stripe],
+/* Payment/card input fields (Paddle, payment forms, etc.) */
 input[name*="card"],
 input[name*="payment"],
 input[name*="billing"] {

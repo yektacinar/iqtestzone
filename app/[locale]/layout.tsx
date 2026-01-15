@@ -5,6 +5,7 @@ import LanguageSelect from '@/components/LanguageSelect';
 import StandardHeader from '@/components/StandardHeader';
 import QuizHeader from '@/components/QuizHeader';
 import HeaderSelector from '@/components/HeaderSelector';
+import Footer from '@/components/Footer';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> | { locale: string } }): Promise<Metadata> {
   const resolvedParams = await (params instanceof Promise ? params : Promise.resolve(params));
@@ -41,6 +42,7 @@ export default async function LocaleLayout({
         <LanguageSelect currentLocale={locale} />
       </div>
       {children}
+      <Footer />
     </>
   );
 }

@@ -33,8 +33,17 @@ export async function GET(request: NextRequest) {
 
   const provider = getPaymentProvider();
 
-  // Mock payment mode
+  // Mock payment mode - only allow in development
   if (provider === 'mock') {
+    // In production, mock mode should not grant access without payment
+    // Only allow mock in development for testing
+    if (process.env.NODE_ENV === 'production') {
+      return NextResponse.json(
+        { error: 'Payment is required. Mock mode is disabled in production.' },
+        { status: 400 }
+      );
+    }
+    
     const transactionId = `mock_${Date.now()}`;
     // Create mock purchase record
     createPurchase({
@@ -51,6 +60,20 @@ export async function GET(request: NextRequest) {
 
   // Paddle payment
   if (provider === 'paddle') {
+    // Check if Paddle is properly configured
+    const paddleVendorId = process.env.PADDLE_VENDOR_ID;
+    const paddleProductId = process.env.PADDLE_PRODUCT_ID;
+    const paddleApiKey = process.env.PADDLE_API_KEY;
+    const paddlePriceId = process.env.PADDLE_PRICE_ID;
+    
+    if (!paddleVendorId && !paddleProductId && !paddleApiKey && !paddlePriceId) {
+      console.error('Paddle is not configured. Missing required environment variables.');
+      const origin = request.nextUrl.origin;
+      return NextResponse.redirect(
+        `${origin}/${locale}/result-lock?error=payment_config&message=${encodeURIComponent('Payment system is not configured. Please contact support.')}`
+      );
+    }
+
     try {
       const transactionId = `paddle_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       
@@ -88,10 +111,11 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(checkoutUrl);
     } catch (error: any) {
       console.error('Paddle error:', error);
-      // Fallback to mock payment on error
-      const transactionId = `error_${Date.now()}`;
+      // Don't grant access on error - redirect back to result-lock with error message
       const origin = request.nextUrl.origin;
-      return NextResponse.redirect(`${origin}/${locale}/result?transaction_id=${transactionId}&error=1`);
+      return NextResponse.redirect(
+        `${origin}/${locale}/result-lock?error=payment_failed&message=${encodeURIComponent('Payment processing failed. Please try again or contact support.')}`
+      );
     }
   }
 
@@ -170,15 +194,18 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(checkoutSession.url || `/${locale}/result-lock`);
     } catch (error: any) {
       console.error('Stripe error:', error);
-      // Fallback to mock payment on error
-      const transactionId = `error_${Date.now()}`;
+      // Don't grant access on error - redirect back to result-lock with error message
       const origin = request.nextUrl.origin;
-      return NextResponse.redirect(`${origin}/${locale}/result?transaction_id=${transactionId}&error=1`);
+      return NextResponse.redirect(
+        `${origin}/${locale}/result-lock?error=payment_failed&message=${encodeURIComponent('Payment processing failed. Please try again or contact support.')}`
+      );
     }
   }
 
-  // Fallback to mock
-  const transactionId = `mock_${Date.now()}`;
+  // No valid payment provider configured
+  console.error('No valid payment provider configured. Provider:', provider);
   const origin = request.nextUrl.origin;
-  return NextResponse.redirect(`${origin}/${locale}/result?transaction_id=${transactionId}`);
+  return NextResponse.redirect(
+    `${origin}/${locale}/result-lock?error=payment_config&message=${encodeURIComponent('Payment system is not properly configured. Please contact support.')}`
+  );
 }
