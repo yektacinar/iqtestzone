@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cognitive icon extracted from logo - optimized for favicon display -->
+  <!-- This matches the icon part of /public/logo.svg -->
+  <circle cx="7" cy="7" r="2.5" fill="#1F2937" opacity="0.9"/>
+  <circle cx="19" cy="7" r="2.5" fill="#1F2937" opacity="0.9"/>
+  <circle cx="7" cy="19" r="2.5" fill="#1F2937" opacity="0.9"/>
+  <circle cx="19" cy="19" r="2.5" fill="#1F2937" opacity="0.9"/>
+  <line x1="9.5" y1="7" x2="16.5" y2="7" stroke="#1F2937" stroke-width="1.5" opacity="0.6"/>
+  <line x1="7" y1="9.5" x2="7" y2="16.5" stroke="#1F2937" stroke-width="1.5" opacity="0.6"/>
+  <line x1="9.5" y1="19" x2="16.5" y2="19" stroke="#1F2937" stroke-width="1.5" opacity="0.6"/>
+  <line x1="19" y1="9.5" x2="19" y2="16.5" stroke="#1F2937" stroke-width="1.5" opacity="0.6"/>
+  <line x1="9.5" y1="9.5" x2="16.5" y2="16.5" stroke="#1F2937" stroke-width="1.2" opacity="0.4"/>
+  <line x1="16.5" y1="9.5" x2="9.5" y2="16.5" stroke="#1F2937" stroke-width="1.2" opacity="0.4"/>
+</svg>
