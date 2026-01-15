@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       <main className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Hero Section */}
         <div className="text-center mb-12">

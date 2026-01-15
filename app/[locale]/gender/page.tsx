@@ -52,7 +52,7 @@ export default function GenderPage({ params }: { params: Promise<{ locale: Local
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8">
+    <div className="bg-gray-50 flex items-center justify-center py-8">
       <div className="w-full max-w-2xl px-4">
         {/* Gender Selection Card */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 md:p-12">

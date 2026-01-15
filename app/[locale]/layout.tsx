@@ -34,20 +34,18 @@ export default async function LocaleLayout({
   const locale = getLocaleFromParams(resolvedParams);
 
   return (
-    <html lang={locale}>
-      <body>
-        <div className="min-h-screen bg-white flex flex-col">
-          {/* Header selector - conditionally renders StandardHeader or QuizHeader based on route */}
-          <HeaderSelector locale={locale} />
-          {/* Language Switcher - Top Right */}
-          <div className="fixed top-4 right-4 z-50">
-            <LanguageSelect currentLocale={locale} />
-          </div>
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+    <html lang={locale} className="h-full">
+      <body className="min-h-screen flex flex-col bg-white">
+        {/* Header selector - conditionally renders StandardHeader or QuizHeader based on route */}
+        <HeaderSelector locale={locale} />
+        {/* Language Switcher - Top Right */}
+        <div className="fixed top-4 right-4 z-50">
+          <LanguageSelect currentLocale={locale} />
         </div>
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

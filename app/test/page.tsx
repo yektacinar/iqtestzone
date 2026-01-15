@@ -74,7 +74,7 @@ export default function TestPage() {
   const numOptions = question.options.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8">
+    <div className="bg-gray-50 flex items-center justify-center py-8">
       <div className="w-full max-w-4xl px-4">
         {/* Compact Header */}
         <div className="mb-6">

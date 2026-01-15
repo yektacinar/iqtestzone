@@ -92,7 +92,7 @@ export default function ResultClient() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="bg-gray-50 py-12 px-4">
       <div className="max-w-3xl mx-auto">
         {/* Result Display */}
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 md:p-12 mb-8 text-center">

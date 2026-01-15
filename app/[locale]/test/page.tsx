@@ -463,7 +463,7 @@ export default function TestPage({ params }: { params: Promise<{ locale: Locale 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8 -mt-16 pt-24">
+    <div className="bg-gray-50 flex items-center justify-center py-8 -mt-16 pt-24">
       <div className="w-full max-w-4xl px-4">
         {/* Compact Header */}
         <div className="mb-6">
