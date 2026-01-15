@@ -5,6 +5,7 @@ import LanguageSelect from '@/components/LanguageSelect';
 import StandardHeader from '@/components/StandardHeader';
 import QuizHeader from '@/components/QuizHeader';
 import HeaderSelector from '@/components/HeaderSelector';
+import Footer from '@/components/Footer';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> | { locale: string } }): Promise<Metadata> {
   const resolvedParams = await (params instanceof Promise ? params : Promise.resolve(params));
@@ -35,14 +36,17 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white flex flex-col">
           {/* Header selector - conditionally renders StandardHeader or QuizHeader based on route */}
           <HeaderSelector locale={locale} />
           {/* Language Switcher - Top Right */}
           <div className="fixed top-4 right-4 z-50">
             <LanguageSelect currentLocale={locale} />
           </div>
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>
